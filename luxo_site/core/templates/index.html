@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Ponto de Luxo</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'img/PontoLuxo icon.jpg' %}">
+    
 </head>
+
 <body>
     <header>
         <div class="logo">Ponto de Luxo</div>
@@ -15,32 +19,34 @@
             <a href="#produtos">Produtos</a>
             <a href="#servicos">Serviços</a>
             <a href="#novidades">Novidades</a>
-            <a href="#atendimento">Atendimento</a>
-            <a href="#sobre">Sobre Nós</a>
         </nav>
 
 
     </header>
 
+    <!-- Menu da loja -->
     <section id="home" class="hero">
         <h1>Bem-vindo à Ponto de Luxo</h1>
-      
+
         <form action="/buscar" method="GET" class="search-form">
-          <div class="search-wrapper">
-            <input type="text" name="q" placeholder="Pesquisa em toda loja..." class="search-input" />
-      
-            <!-- Botão com lupa funcional -->
-            <button type="submit" class="search-button" aria-label="Pesquisar">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15 15L20 20" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
+            <div class="search-wrapper">
+                <input type="text" name="q" placeholder="Pesquisa em toda loja..." class="search-input" />
+
+                <!-- Botão com lupa funcional -->
+                <button type="submit" class="search-button" aria-label="Pesquisar">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                            d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
+                            stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15 15L20 20" stroke="#999" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
         </form>
+    </section>
 
-
-    </section>   
+    <!-- Produtos da loja  -->
     <section id="produtos" class="section">
         <h2>Nossos Produtos</h2>
         <div class="cards">
@@ -48,42 +54,418 @@
                 <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes">
                 <h3>Anel de Diamantes</h3>
                 <p>Brilho eterno em cada detalhe.</p>
+                <p class="preco"><strong>R$ 1.500,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
             </div>
+
             <div class="card">
                 <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco">
                 <h3>Colar de Ouro Branco</h3>
                 <p>Luxo e sofisticação para todas as ocasiões.</p>
+                <p class="preco"><strong>R$ 2.800,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
             </div>
+
             <div class="card">
-                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}" alt="Pulseira Elegante">
+                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+                    alt="Pulseira Elegante">
                 <h3>Pulseira Elegante</h3>
                 <p>Design refinado e atemporal.</p>
+                <p class="preco"><strong>R$ 950,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
             </div>
         </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes">
+                <h3>Anel de Diamantes</h3>
+                <p>Brilho eterno em cada detalhe.</p>
+                <p class="preco"><strong>R$ 1.500,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco">
+                <h3>Colar de Ouro Branco</h3>
+                <p>Luxo e sofisticação para todas as ocasiões.</p>
+                <p class="preco"><strong>R$ 2.800,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+                    alt="Pulseira Elegante">
+                <h3>Pulseira Elegante</h3>
+                <p>Design refinado e atemporal.</p>
+                <p class="preco"><strong>R$ 950,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes">
+                <h3>Anel de Diamantes</h3>
+                <p>Brilho eterno em cada detalhe.</p>
+                <p class="preco"><strong>R$ 1.500,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco">
+                <h3>Colar de Ouro Branco</h3>
+                <p>Luxo e sofisticação para todas as ocasiões.</p>
+                <p class="preco"><strong>R$ 2.800,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+                    alt="Pulseira Elegante">
+                <h3>Pulseira Elegante</h3>
+                <p>Design refinado e atemporal.</p>
+                <p class="preco"><strong>R$ 950,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes">
+                <h3>Anel de Diamantes</h3>
+                <p>Brilho eterno em cada detalhe.</p>
+                <p class="preco"><strong>R$ 1.500,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco">
+                <h3>Colar de Ouro Branco</h3>
+                <p>Luxo e sofisticação para todas as ocasiões.</p>
+                <p class="preco"><strong>R$ 2.800,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+                    alt="Pulseira Elegante">
+                <h3>Pulseira Elegante</h3>
+                <p>Design refinado e atemporal.</p>
+                <p class="preco"><strong>R$ 950,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes">
+                <h3>Anel de Diamantes</h3>
+                <p>Brilho eterno em cada detalhe.</p>
+                <p class="preco"><strong>R$ 1.500,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco">
+                <h3>Colar de Ouro Branco</h3>
+                <p>Luxo e sofisticação para todas as ocasiões.</p>
+                <p class="preco"><strong>R$ 2.800,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+                    alt="Pulseira Elegante">
+                <h3>Pulseira Elegante</h3>
+                <p>Design refinado e atemporal.</p>
+                <p class="preco"><strong>R$ 950,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes">
+                <h3>Anel de Diamantes</h3>
+                <p>Brilho eterno em cada detalhe.</p>
+                <p class="preco"><strong>R$ 1.500,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco">
+                <h3>Colar de Ouro Branco</h3>
+                <p>Luxo e sofisticação para todas as ocasiões.</p>
+                <p class="preco"><strong>R$ 2.800,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+                    alt="Pulseira Elegante">
+                <h3>Pulseira Elegante</h3>
+                <p>Design refinado e atemporal.</p>
+                <p class="preco"><strong>R$ 950,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes">
+                <h3>Anel de Diamantes</h3>
+                <p>Brilho eterno em cada detalhe.</p>
+                <p class="preco"><strong>R$ 1.500,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco">
+                <h3>Colar de Ouro Branco</h3>
+                <p>Luxo e sofisticação para todas as ocasiões.</p>
+                <p class="preco"><strong>R$ 2.800,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+                    alt="Pulseira Elegante">
+                <h3>Pulseira Elegante</h3>
+                <p>Design refinado e atemporal.</p>
+                <p class="preco"><strong>R$ 950,00</strong></p>
+                <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="number" name="quantidade" value="1" min="1" class="input-quantidade">
+                    <button type="submit" class="btn-carrinho">Comprar</button>
+                </form>
+            </div>
+        </div>
+
     </section>
 
+
+    <!-- Aba de serviços -->
     <section id="servicos" class="section">
-        <h2>Serviços</h2>
-        <p>Consultoria personalizada para escolha de joias ideais, ajustes sob medida e restauração de peças antigas.</p>
+        <div class="container">
+        <h1>Nossos Serviços</h1>
+
+        <div class="service">
+            <h2>Consultoria Personalizada</h2>
+            <p>Auxiliamos você na escolha da joia perfeita para celebrar momentos especiais, com atendimento exclusivo e dedicado.</p>
+        </div>
+
+        <div class="service">
+            <h2>Criação de Joias Sob Medida</h2>
+            <p>Desenvolvemos peças únicas, desenhadas especialmente para você, transformando seus sonhos em realidade.</p>
+        </div>
+
+        <div class="service">
+            <h2>Ajustes e Reformas</h2>
+            <p>Realizamos ajustes de tamanho, consertos e reformas em joias, garantindo conforto, durabilidade e beleza.</p>
+        </div>
+
+        <div class="service">
+            <h2>Restauração e Revitalização</h2>
+            <p>Restaure o brilho e a história das suas joias, com serviços que preservam valor sentimental e elegância.</p>
+        </div>
+
+        <div class="service">
+            <h2>Limpeza e Polimento</h2>
+            <p>Deixe suas peças sempre impecáveis com nosso serviço profissional de limpeza e polimento.</p>
+        </div>
+
+        <div class="service">
+            <h2>Avaliação e Certificação</h2>
+            <p>Oferecemos avaliação profissional e emissão de certificados de autenticidade para suas joias e pedras preciosas.</p>
+        </div>
+
+        <div class="service">
+            <h2>Embalagens Exclusivas</h2>
+            <p>Suas joias são entregues em embalagens sofisticadas e personalizadas, prontas para transformar qualquer momento em inesquecível.</p>
+        </div>
+    </div>
     </section>
 
     <section id="novidades" class="section">
-        <h2>Novidades</h2>
-        <p>Confira os lançamentos mais recentes das nossas coleções exclusivas.</p>
-    </section>
+    <h2>Novidades</h2>
+    <p>Confira os lançamentos mais recentes das nossas coleções exclusivas.</p>
 
-    <section id="atendimento" class="section">
-        <h2>Atendimento</h2>
-        <p>Agende um atendimento exclusivo ou fale conosco via WhatsApp: <strong>(11) 99999-9999</strong></p>
-    </section>
+    <div class="card-novidade">
+        <img src="{% static 'img/luxo.png' %}" alt="Banner Black Friday">
+        <div class="conteudo-card">
+            <h3>Ofertas Exclusivas</h3>
+            <p>Aproveite até 20% de desconto nas nossas joias. Só essa semana!</p>
+        </div>
+    </div>
 
-    <section id="sobre" class="section">
-        <h2>Sobre Nós</h2>
-        <p>Desde 2005, a Ponto de Luxo é referência em joias finas, oferecendo peças únicas com qualidade artesanal e excelência no atendimento.</p>
-    </section>
 
-    <footer>
-        <p>&copy; 2025 Ponto de Luxo. Todos os direitos reservados.</p>
-    </footer>
+    <button class="scrollToTopButton" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Voltar ao topo</button>
+    
+</section>
+
+
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-columns">
+
+            <div class="footer-column">
+                <h4>Nossa Empresa</h4>
+                <ul>
+                    <li><a href="#">Sobre a Ponto de Luxo</a></li>
+                    <li><a href="#">Sustentabilidade</a></li>
+                    <li><a href="#">Trabalhe conosco</a></li>
+                    <li><a href="#">Relação com investidores</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Canal de Denúncias</a></li>
+                    <li><a href="#">Igualdade salarial</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li><a href="#">Central de Atendimento</a></li>
+                    <li><a href="#">Acompanhe seu pedido</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#">Horário de Atendimento</a></li>
+                    <li><a href="#">Vendas Corporativas</a></li>
+                    <li><a href="#">Marketplaces e Parcerias</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Informações</h4>
+                <ul>
+                    <li><a href="#">Política de Garantia</a></li>
+                    <li><a href="#">Política de Troca</a></li>
+                    <li><a href="#">Política de Consertos</a></li>
+                    <li><a href="#">Aviso de Privacidade</a></li>
+                    <li><a href="#">Formas de Pagamento</a></li>
+                    <li><a href="#">Regulamento GiftBack</a></li>
+                    <li><a href="#">Cartão Presente</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column newsletter">
+                <h4>ACOMPANHE NOSSAS NOVIDADES</h4>
+                <p>Cadastre seu e-mail para receber informações exclusivas</p>
+                <form>
+                    <input type="email" placeholder="E-mail" required>
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <p class="politica">
+                    Ao se cadastrar, você concorda com nossa <a href="#">Política de Privacidade</a> e declara ter mais de 18 anos.
+                </p>
+                <div class="apps">
+                    <img src="data:image/png;base64,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" alt="Google Play">
+                    <img src="data:image/png;base64,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" alt="App Store">
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <div class="social">
+                <img src="{% static 'img/PontoLuxo icon.jpg' %}" style="width: 48px; height: 48px;" alt="logo-loja">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="copy">
+                <p>&copy; 2025 Ponto de Luxo. Todos os direitos reservados.</p>
+                <p>Endereço: Rua Exemplo, Nº 9546 - Belo Horizonte/MG - CEP 00000-000</p>
+                <p>CNPJ: 00.000.000/0001-00</p>
+            </div>
+            <div class="selos">
+                <img src="data:image/png;base64,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" alt="Selo Reclame Aqui">
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
+
 </html>

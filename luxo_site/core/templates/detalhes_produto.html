@@ -1,0 +1,13 @@
+<section id="detalhes_produto" class="section">
+     <h2>{{ produto.nome }}</h2>
+    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+    <p>{{ produto.descricao }}</p>
+    <p>Preço: R$ {{ produto.preco }}</p>
+    <p>Disponível: {{ produto.quantidade_disponivel }}</p>
+
+    <form method="POST" action="{% url 'adicionar_carrinho' produto.id %}">
+        {% csrf_token %}
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" name="quantidade" value="1" min="1" max="{{ produto.quantidade_disponivel }}">
+        <button type="submit">Adicionar ao carrinho</button>
+</section>

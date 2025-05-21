@@ -164,6 +164,104 @@ header {
   pointer-events: none;
 }
 
+.container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d4af37;
+            margin-bottom: 40px;
+            font-size: 2.8rem;
+        }
+
+        /* novidades */
+        #novidades {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#novidades h2 {
+    color: #a07d4f;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+#novidades p {
+    color: #5a4c3c;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.card-novidade {
+    background-color: #f9f6f2;
+    max-width: 850px;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(160, 125, 79, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-novidade:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(160, 125, 79, 0.35);
+}
+
+.card-novidade img {
+    width: 100%;
+    display: block;
+}
+
+.conteudo-card {
+    padding: 20px 30px;
+}
+
+.conteudo-card h3 {
+    color: #a07d4f;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.conteudo-card p {
+    color: #5a4c3c;
+    font-size: 1rem;
+}
+
+
+        /* servicos */
+        .service {
+            background-color:#2f4f4f;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .service h2 {
+            color: #d4af37;
+            margin-top: 0;
+        }
+
+        .service p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
 /* Rodapé */
 footer {
   background-color: #2f4f4f;
