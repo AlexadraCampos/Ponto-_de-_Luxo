@@ -1,5 +1,4 @@
 /* Footer */
-
 .footer {
     background-color: #fff7f3;
     padding: 60px 20px 30px;
@@ -145,22 +144,65 @@
 
 
 /* botao que volta ao menu */
-
 .scrollToTopButton{
     border-radius: 10px;
     padding: 5px;
     padding-bottom: px;
     background-color: #fff;
     margin: 10px; 
-    position: relative; 
-    top: 10px; 
-    left: 10px;
+    position: relative;
+    justify-content: center; 
+    
 }
 /* 
 banner  */
-.carrossel {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  scroll-snap-type: x mandatory;
+/* Estilo do slider */
+.slider {
+    width: 800px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 40px auto;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
+.slides {
+    width: 500%;
+    height: 100%;
+    display: flex;
+}
+
+/* botao do carrinho */
+.btn-carrinho {
+    background-color: #c2185b; /* Rosa escuro */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 32px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-carrinho:hover {
+    background-color: #ad1457; 
+  }
+  
+  /* carrinho lateral  */
+  .cart-drawer {
+    display: none; 
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background: #fff;
+    border-left: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  

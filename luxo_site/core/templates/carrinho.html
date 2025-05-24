@@ -1,27 +1,11 @@
-<section id="carrinho" class="section">
-    <h2>Seu Carrinho</h2>
-    {% if itens %}
-    <table>
-        <thead>
-            <tr>
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in itens %}
-            <tr>
-                <td>{{ item.produto.nome }}</td>
-                <td>{{ item.quantidade }}</td>
-                <td>R$ {{ item.subtotal }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p><strong>Total: R$ {{ total }}</strong></p>
-    <button>Finalizar Compra</button> <!-- depois podemos criar o checkout -->
-    {% else %}
-    <p>Seu carrinho está vazio.</p>
-    {% endif %}
-</section>
+
+
+<!-- carinho lateral  -->
+<div id="cartDrawer" style="display:none; position:fixed; right:0; top:0; width:400px; height:100%; background:white; border-left:1px solid #ccc; padding:20px; box-shadow:-2px 0 5px rgba(0,0,0,0.3); overflow:auto;">
+    <button onclick="closeCart()">Fechar</button>
+    <h2>Sua Sacola</h2>
+    <div id="cartItems"></div>
+    <h3>Total: <span id="cartTotal">R$ 0,00</span></h3>
+    <button>Ir para a Sacola</button>
+</div>
+

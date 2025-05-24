@@ -14,5 +14,9 @@ def produtos(request):
 
 
 def adicionar_carrinho(request, produto_id):
+    if request.method == 'POST':
+        carrinho = request.session.get('carrinho', {})
+        carrinho[produto_id] = carrinho.get(produto_id, 0) + 1
+        request.session['carrinho'] = carrinho
     
-    return redirect('produtos.html')
+    return redirect('index')
