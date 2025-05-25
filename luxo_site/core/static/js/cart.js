@@ -1,71 +1,77 @@
-const cart = [];
-let cartOpen = false;
+let currentSlide = 0;
+const totalSlides = 3;
+const track = document.getElementById('carouselTrack');
+const indicators = document.querySelectorAll('.indicator');
 
-function addToCart(product) {
-  const existing = cart.find(item => item.id === product.id);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-  openCart();
-  renderCart();
+function updateCarousel() {
+    const translateX = -currentSlide * 100;
+    track.style.transform = `translateX(${translateX}%)`;
+    
+    // Update indicators
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+    });
 }
 
-function removeFromCart(id) {
-  const index = cart.findIndex(item => item.id === id);
-  if (index !== -1) {
-    cart.splice(index, 1);
-  }
-  renderCart();
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
 }
 
-function updateQuantity(id, change) {
-  const item = cart.find(item => item.id === id);
-  if (item) {
-    item.quantity = Math.max(1, item.quantity + change);
-  }
-  renderCart();
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
 }
 
-function openCart() {
-  document.getElementById("cartDrawer").style.display = "block";
-  cartOpen = true;
+function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateCarousel();
 }
 
-function closeCart() {
-  document.getElementById("cartDrawer").style.display = "none";
-  cartOpen = false;
-}
+// Auto-play carousel
+let autoPlay = setInterval(nextSlide, 5000);
 
-function renderCart() {
-  const cartContainer = document.getElementById("cartItems");
-  cartContainer.innerHTML = "";
+// Pause auto-play on hover
+const container = document.querySelector('.carousel-container');
+container.addEventListener('mouseenter', () => {
+    clearInterval(autoPlay);
+});
 
-  let total = 0;
+container.addEventListener('mouseleave', () => {
+    autoPlay = setInterval(nextSlide, 5000);
+});
 
-  cart.forEach(item => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
+// Touch/swipe suporte para mobile
+let startX = 0;
+let isDragging = false;
 
-    const div = document.createElement("div");
-    div.classList.add("cart-item");
-    div.innerHTML = `
-      <img src="${item.image}" width="60" />
-      <div>
-        <h4>${item.name}</h4>
-        <p>R$ ${item.price.toFixed(2)}</p>
-        <div>
-          <button onclick="updateQuantity(${item.id}, -1)">-</button>
-          <span>${item.quantity}</span>
-          <button onclick="updateQuantity(${item.id}, 1)">+</button>
-        </div>
-        <p>Total: R$ ${itemTotal.toFixed(2)}</p>
-        <button onclick="removeFromCart(${item.id})">Remover</button>
-      </div>
-    `;
-    cartContainer.appendChild(div);
-  });
+container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+});
 
-  document.getElementById("cartTotal").innerText = `R$ ${total.toFixed(2)}`;
-}
+container.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+            nextSlide();
+        } else {
+            prevSlide();
+        }
+    }
+    
+    isDragging = false;
+});
+
+// Navegação pelo teclado
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        prevSlide();
+    } else if (e.key === 'ArrowRight') {
+        nextSlide();
+    }
+});
