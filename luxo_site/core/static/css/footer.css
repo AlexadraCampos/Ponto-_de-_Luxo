@@ -1,6 +1,7 @@
 /* Footer */
 .footer {
-    background-color: #fff7f3;
+    width: 100%;
+    background-color: #fff; /* Coloque a cor que quiser, pode ser branca ou outro tom */
     padding: 60px 20px 30px;
     color: #000;
     font-family: 'Poppins', sans-serif;
@@ -8,8 +9,9 @@
 }
 
 .footer .container {
-    max-width: 1300px;
-    margin: auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
 }
 
 .footer-columns {
@@ -59,7 +61,7 @@
     flex: 1;
     padding: 10px;
     border: 1px solid #999;
-    border-radius: 3px 0 0 3px;
+    border-radius: 0;
     outline: none;
 }
 
@@ -69,7 +71,7 @@
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 0 3px 3px 0;
+    border-radius: 0;
     transition: background 0.3s;
 }
 
@@ -127,6 +129,7 @@
     width: 90px;
     margin-left: 10px;
 }
+
 
 /* Responsivo */
 

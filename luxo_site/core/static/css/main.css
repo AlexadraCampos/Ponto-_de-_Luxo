@@ -12,6 +12,14 @@ body  {
   line-height: 1.6;
 }
 
+/* banner menu da loja  */
+.hero {
+  background-image: url('/static/img/Banner para menu.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Cabeçalho */
 header {
   background-color: #2f4f4f;
@@ -27,7 +35,9 @@ header {
   font-size: 28px;
   font-weight: bold;
   letter-spacing: 1px;
-  color: #daa;
+  color: #C5A659;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+
 }
 
 
@@ -73,7 +83,9 @@ header {
 
 .hero h1 {
   font-size: 3em;
-  color: gold;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 8px;
+  border-radius: 8px;
   margin-bottom: 30px;
 }
 
@@ -124,6 +136,26 @@ header {
   font-size: 0.95em;
   color: #555;
 }
+
+/* botao do produtos */
+.btn-carrinho {
+    background: rgba(212,175,55,0.9);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 32px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-carrinho:hover {
+    background: rgba(212,175,55,1);
+    transform: translateY(-2px);
+  }
+
+
 
 
 /* placehoder */
