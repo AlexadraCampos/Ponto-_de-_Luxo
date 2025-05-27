@@ -1,7 +1,7 @@
 /* Footer */
 .footer {
     width: 100%;
-    background-color: #fff; /* Coloque a cor que quiser, pode ser branca ou outro tom */
+    background-color: #fff; 
     padding: 60px 20px 30px;
     color: #000;
     font-family: 'Poppins', sans-serif;
@@ -130,9 +130,7 @@
     margin-left: 10px;
 }
 
-
 /* Responsivo */
-
 @media(max-width: 768px) {
     .footer-bottom {
         flex-direction: column;
