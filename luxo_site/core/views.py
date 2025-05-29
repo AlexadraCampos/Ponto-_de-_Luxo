@@ -12,6 +12,11 @@ def produtos(request):
     produtos = Produto.objects.all()
     return render(request, 'produtos.html', {'produtos': produtos})
 
+def buscar(request):
+    query = request.GET.get('q')
+    resultados = Produto.objects.filter(nome__icontains=query) if query else []
+    return render(request, 'index.html', {'resultados': resultados, 'query': query})
+
 
 def adicionar_carrinho(request, produto_id):
     if request.method == 'POST':

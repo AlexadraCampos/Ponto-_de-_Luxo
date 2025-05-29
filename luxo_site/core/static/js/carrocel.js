@@ -75,3 +75,8 @@ document.addEventListener('keydown', (e) => {
         nextSlide();
     }
 });
+
+// automatização do carrocel 
+setInterval(() => {
+  nextSlide();
+}, 3000); // 3000 milissegundos = 3 segundos

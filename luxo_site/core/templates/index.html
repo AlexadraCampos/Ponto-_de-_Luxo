@@ -11,6 +11,15 @@
   <link rel="icon" type="image/x-icon" href="{% static 'img/PontoLuxo icon.jpg' %}" />
 </head>
 
+<!-- Carrinho lateral -->
+<div id="cartDrawer" style="display:none; position:fixed; right:0; top:0; width:400px; height:100%; background:white; border-left:1px solid #ccc; padding:20px; box-shadow:-2px 0 5px rgba(0,0,0,0.3); overflow:auto; z-index: 1000;">
+    <button onclick="closeCart()">Fechar</button>
+    <h2>Sua Sacola</h2>
+    <div id="cartItems"></div>
+    <h3>Total: <span id="cartTotal">R$ 0,00</span></h3>
+    <button>Ir para a Sacola</button>
+</div>
+
 <body>
   <header>
     <div class="logo">Ponto de Luxo</div>
@@ -65,7 +74,7 @@
         <p class="preco"><strong>R$ 2.800,00</strong></p>
         <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
           {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
+          <button onclick="openCart()" type="submit" class="btn-carrinho">Comprar</button>
         </form>
       </div>
 
@@ -535,7 +544,40 @@
     </footer>
   </section>
 
-    <script src="{% static 'js/cart.js' %}"></script>
+  
+    <script src="{% static 'js/carrinho.js' %}"></script>
+    <script src="{% static 'js/carrocel.js' %}"></script>
+  
+    <script>
+      const searchInput = document.querySelector('.search-input');
+  const form = document.querySelector('.search-form');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita recarregar a página
+
+    const searchTerm = searchInput.value.toLowerCase();
+    const products = document.querySelectorAll('.card');
+
+    let found = false;
+
+    products.forEach(product => {
+      const name = product.querySelector('h3').innerText.toLowerCase();
+      const desc = product.querySelector('p').innerText.toLowerCase();
+
+      if (name.includes(searchTerm) || desc.includes(searchTerm)) {
+        product.style.display = 'block';
+        found = true;
+      } else {
+        product.style.display = 'none';
+      }
+    });
+
+    if (!found) {
+      alert('Nenhum produto encontrado!');
+    }
+  });
+
+    </script>
 </body>
 
 </html>
