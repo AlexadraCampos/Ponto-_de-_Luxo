@@ -5,19 +5,20 @@
   <meta charset="UTF-8" />
   <title>Ponto de Luxo</title>
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
-  <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
-  
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
   <link rel="icon" type="image/x-icon" href="{% static 'img/PontoLuxo icon.jpg' %}" />
 </head>
 
 <!-- Carrinho lateral -->
-<div id="cartDrawer" style="display:none; position:fixed; right:0; top:0; width:400px; height:100%; background:white; border-left:1px solid #ccc; padding:20px; box-shadow:-2px 0 5px rgba(0,0,0,0.3); overflow:auto; z-index: 1000;">
-    <button onclick="closeCart()">Fechar</button>
-    <h2>Sua Sacola</h2>
-    <div id="cartItems"></div>
-    <h3>Total: <span id="cartTotal">R$ 0,00</span></h3>
-    <button>Ir para a Sacola</button>
+<div id="cartDrawer"
+  style="display:none; position:fixed; right:0; top:0; width:400px; height:100%; background:white; border-left:1px solid #ccc; padding:20px; box-shadow:-2px 0 5px rgba(0,0,0,0.3); overflow:auto; z-index: 1000;">
+  <button onclick="closeCart()">Fechar</button>
+  <h2>Sua Sacola</h2>
+  <div id="cartItems"></div>
+  <h3>Total: <span id="cartTotal">R$ 0,00</span></h3>
+  <button>Ir para a Sacola</button>
 </div>
 
 <body>
@@ -55,256 +56,256 @@
   <!-- Produtos da loja  -->
   <section id="produtos" class="section">
     <h2>Nossos Produtos</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes" />
-        <h3>Anel de Diamantes</h3>
-        <p>Brilho Eterno em Cada Detalhe.</p>
-        <p class="preco"><strong>R$ 1.500,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'img/product/anel_Diamantes.jpg' %}" alt="Anel de Diamantes" />
+          <h3>Anel de Diamantes</h3>
+          <p>Brilho Eterno em Cada Detalhe.</p>
+          <p class="preco"><strong>R$ 1.500,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco" />
+          <h3>Colar de Ouro Branco</h3>
+          <p>Luxo e Sofisticação Para Todas As Ocasiões.</p>
+          <p class="preco"><strong>R$ 2.800,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
+            {% csrf_token %}
+            <button onclick="openCart()" type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
+            alt="Pulseira Elegante" />
+          <h3>Pulseira Elegante</h3>
+          <p>Design Refinado e Atemporal.</p>
+          <p class="preco"><strong>R$ 950,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/joias-de-luxo-em-exposicao.jpg' %}" alt="Colar de Ouro Branco" />
-        <h3>Colar de Ouro Branco</h3>
-        <p>Luxo e Sofisticação Para Todas As Ocasiões.</p>
-        <p class="preco"><strong>R$ 2.800,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
-          {% csrf_token %}
-          <button onclick="openCart()" type="submit" class="btn-carrinho">Comprar</button>
-        </form>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'img/product/anel-de-ouro.png' %}" alt="Anel de ouro1" />
+          <h3>Anel de Ouro</h3>
+          <p>Detalhes Precisos, Luxo Refinado.</p>
+          <p class="preco"><strong>R$ 800,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 4 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <img src="{% static 'img/product/brincos-de-ouro.jpg' %}" alt="brincos de Ouro1" />
+          <h3>Brincos de Ouro</h3>
+          <p>Elegância em Ouro</p>
+          <p class="preco"><strong>R$ 500,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 5 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <img src="{% static 'img/product/anel-de-ouro-4.png' %}" alt="Anel Elegante2" />
+          <h3>Anel Elegante</h3>
+          <p>Se mime. Detalhes precisos, amor perfeito.</p>
+          <p class="preco"><strong>R$ 950,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 6 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/vista-lateral-de-pulseiras-de-prata-com-diamantes-na-parede-preta.jpg' %}"
-          alt="Pulseira Elegante" />
-        <h3>Pulseira Elegante</h3>
-        <p>Design Refinado e Atemporal.</p>
-        <p class="preco"><strong>R$ 950,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-    </div>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'img/product/elegantes-brincos-de-circulo-de-ouro-design-de-anel-duplo-dangle.jpg' %}"
+            alt="Brincos de circulo" />
+          <h3>Brincos em Círculos Dourados</h3>
+          <p>Elegância em Círculos de Ouro</p>
+          <p class="preco"><strong>R$ 890,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 7 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="{% static 'img/product/anel-de-ouro.png' %}"  alt="Anel de ouro1" />
-        <h3>Anel de Ouro</h3>
-        <p>Detalhes Precisos, Luxo Refinado.</p>
-        <p class="preco"><strong>R$ 800,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 4 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
+        <div class="card">
+          <img src="{% static 'img/product/elegantes-brincos-de-safiro-azul-e-ouro.jpg' %}" alt="Brincos safiro" />
+          <h3>Brincos Safiro Azul e Ouro</h3>
+          <p>Elegantes Brincos de Safiro Azul e Ouro Fino</p>
+          <p class="preco"><strong>R$ 2.000,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 8 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/brincos-de-ouro.jpg' %}" alt="brincos de Ouro1" />
-        <h3>Brincos de Ouro</h3>
-        <p>Elegância em Ouro</p>
-        <p class="preco"><strong>R$ 500,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 5 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-
-      <div class="card">
-        <img src="{% static 'img/product/anel-de-ouro-4.png' %}"
-          alt="Anel Elegante2" />
-        <h3>Anel Elegante</h3>
-        <p>Se Mime Detalhes Precisos, Amor Perfeito.</p>
-        <p class="preco"><strong>R$ 950,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 6 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <img src="{% static 'img/product/elegantes-brincos-de-circulo-de-ouro-design-de-anel-duplo-dangle.jpg' %}" alt="Brincos de circulo" />
-        <h3>Brincos de Circulo de Ouro</h3>
-        <p>Elegantes em Circulos de Ouro</p>
-        <p class="preco"><strong>R$ 890,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 7 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
+        <div class="card">
+          <img
+            src="{% static 'img/product/vista-superior-de-brincos-de-prata-esterlina-com-cristal-swarovski-com-tachas-na-parede-preta.jpg' %}"
+            alt="Brincos cristal" />
+          <h3>Brincos Cristal de Prata</h3>
+          <p>Brilho Que Acompanha Você.</p>
+          <p class="preco"><strong>R$ 139,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 9 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/elegantes-brincos-de-safiro-azul-e-ouro.jpg' %}" alt="Brincos safiro" />
-        <h3>Brincos Safiro Azul e Ouro</h3>
-        <p>Elegantes Brincos de Safiro Azul e Ouro Fino</p>
-        <p class="preco"><strong>R$ 2.000,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 8 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'img/product/vista-luxuoso-anel-de-ouro-na-exibicao-de-joias-de-feltro.jpg' %}"
+            alt="Anel de Ouro" />
+          <h3>Anel de Ouro</h3>
+          <p>Aneis Que Fazem Você Se Sentir Especial</p>
+          <p class="preco"><strong>R$ 611,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 10 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <img src="{% static 'img/product/jovem-modelo-demonstrando-joias-caras.jpg' %}" alt="Anel4" />
+          <h3>Anel Refinado</h3>
+          <p>Anel Requinte Que Combina Com Seu Estilo</p>
+          <p class="preco"><strong>R$ 200,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 11 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <img
+            src="{% static 'img/product/exibicao-de-joias-de-vitrine-de-busto-para-pingente-de-colar-estilo-de-vida-de-joias-maquete-de-acessorios-de-moda.jpg' %}"
+            alt="Colar Elegante" />
+          <h3>Colar Elegante</h3>
+          <p>Joias Que São Obras de Arte</p>
+          <p class="preco"><strong>R$ 900,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 12 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/vista-superior-de-brincos-de-prata-esterlina-com-cristal-swarovski-com-tachas-na-parede-preta.jpg' %}"
-          alt="Brincos cristal" />
-        <h3>Brincos Cristal de Prata</h3>
-        <p>Brilho Que Acompanha Você.</p>
-        <p class="preco"><strong>R$ 139,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 9 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-    </div>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'img/product/ai-generated-8691953_1280.jpg' %}" alt="Colar Ouro3" />
+          <h3>Colar De Ouro Com Pedras</h3>
+          <p>Brilho Que Nunca Sai de Moda</p>
+          <p class="preco"><strong>R$ 3.500,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 13 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="{% static 'img/product/vista-luxuoso-anel-de-ouro-na-exibicao-de-joias-de-feltro.jpg' %}" alt="Anel de Ouro" />
-        <h3>Anel de Ouro</h3>
-        <p>Aneis Que Fazem Você Se Sentir Especial</p>
-        <p class="preco"><strong>R$ 611,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 10 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
+        <div class="card">
+          <img src="{% static 'img/product/bangles-2933988_1280.jpg' %}" alt="Pulseira joia indiana" />
+          <h3>Pulseira Joia Indiana</h3>
+          <p>Pulseira De Pratas e Pedras Indiana</p>
+          <p class="preco"><strong>R$ 1.800,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 14 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/jovem-modelo-demonstrando-joias-caras.jpg' %}" alt="Anel4" />
-        <h3>Anel Refinado</h3>
-        <p>Anel Requinte Que Combina Com Seu Estilo</p>
-        <p class="preco"><strong>R$ 200,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 11 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-
-      <div class="card">
-        <img src="{% static 'img/product/exibicao-de-joias-de-vitrine-de-busto-para-pingente-de-colar-estilo-de-vida-de-joias-maquete-de-acessorios-de-moda.jpg' %}"
-          alt="Colar Elegante" />
-        <h3>Colar Elegante</h3>
-        <p>Joias Que São Obras de Arte</p>
-        <p class="preco"><strong>R$ 900,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 12 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <img src="{% static 'img/product/ai-generated-8691953_1280.jpg' %}" alt="Colar Ouro3" />
-        <h3>Colar De Ouro Com Pedras</h3>
-        <p>Brilho Que Nunca Sai de Moda</p>
-        <p class="preco"><strong>R$ 3.500,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 13 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
+        <div class="card">
+          <img src="{% static 'img/product/bracelet-671791_1280.jpg' %}" alt="bracelet" />
+          <h3>Bracelete de Prata</h3>
+          <p>De Prata Com Pedras</p>
+          <p class="preco"><strong>R$ 950,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 15 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/bangles-2933988_1280.jpg' %}" alt="Pulseira joia indiana" />
-        <h3>Pulseira Joia Indiana</h3>
-        <p>Pulseira De Pratas e Pedras Indiana</p>
-        <p class="preco"><strong>R$ 1.800,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 14 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'img/product/bracelet-1198740_1280.jpg' %}" alt="Bracelete" />
+          <h3>Bracelete de Jasmin</h3>
+          <p>Delicado e Luxuoso Como Você </p>
+          <p class="preco"><strong>R$ 500,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 16 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/bracelet-671791_1280.jpg' %}"
-          alt="bracelet" />
-        <h3>Bracelete de Prata</h3>
-        <p>De Prata Com Pedras</p>
-        <p class="preco"><strong>R$ 950,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 15 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-    </div>
+        <div class="card">
+          <img src="{% static 'img/product/anel-de-ouro-10k.png' %}" alt="Anel de Ouro5" />
+          <h3>Anel de Ouro Chique</h3>
+          <p>Elegância, Sofisticação e Requinte</p>
+          <p class="preco"><strong>R$ 500,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 17 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="{% static 'img/product/bracelet-1198740_1280.jpg' %}" alt="Bracelete" />
-        <h3>Bracelete de Jasmin</h3>
-        <p>Delicado e Luxuoso Como Você </p>
-        <p class="preco"><strong>R$ 500,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 16 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
+        <div class="card">
+          <img src="{% static 'img/product/wedding-rings-4715281_1280.jpg' %}" alt="Alianças" />
+          <h3>Alianças de Ouro</h3>
+          <p>Luxo para seu Eterno Amor</p>
+          <p class="preco"><strong>R$ 950,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 18 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
       </div>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'img/product/wedding-rings-1912287_1280.jpg' %}" alt="Anel de casal" />
+          <h3>Alianças De Casamento</h3>
+          <p>Um brilho Para Todo o Sempre.</p>
+          <p class="preco"><strong>R$ 1.500,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 19 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/anel-de-ouro-10k.png' %}" alt="Anel de Ouro5" />
-        <h3>Anel de Ouro Chique</h3>
-        <p>Elegância, Sofisticação e Requinte</p>
-        <p class="preco"><strong>R$ 500,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 17 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
+        <div class="card">
+          <img src="{% static 'img/product/wedding-688916_1280.jpg' %}" alt="Alianças casal" />
+          <h3>Alianças de Prata</h3>
+          <p>Luxo ao Seu Amor</p>
+          <p class="preco"><strong>R$ 200,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 20 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
 
-      <div class="card">
-        <img src="{% static 'img/product/wedding-rings-4715281_1280.jpg' %}"
-          alt="Alianças" />
-        <h3>Alianças de Ouro</h3>
-        <p>Luxo Para Seu Enterno Amor</p>
-        <p class="preco"><strong>R$ 950,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 18 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
+        <div class="card">
+          <img src="{% static 'img/product/rings-3813522_1280.jpg' %}" alt="Anel compromisso" />
+          <h3>Anel de Compromisso</h3>
+          <p>Um Luxo Para Sempre</p>
+          <p class="preco"><strong>R$ 100,00</strong></p>
+          <form action="{% url 'adicionar_carrinho' 21 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-carrinho">Comprar</button>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <img src="{% static 'img/product/wedding-rings-1912287_1280.jpg' %}" alt="Anel de casal" />
-        <h3>Alianças De Casamento</h3>
-        <p>Um brilho Para Todo o Sempre.</p>
-        <p class="preco"><strong>R$ 1.500,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 19 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-
-      <div class="card">
-        <img src="{% static 'img/product/wedding-688916_1280.jpg' %}" alt="Alianças casal" />
-        <h3>Alianças de Prata</h3> 
-        <p>Luxo ao Seu Amor</p>
-        <p class="preco"><strong>R$ 200,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 20 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-
-      <div class="card">
-        <img src="{% static 'img/product/rings-3813522_1280.jpg' %}"
-          alt="Anel compromisso" />
-        <h3>Anel de Compromisso</h3>
-        <p>Um Luxo Para Sempre</p>
-        <p class="preco"><strong>R$ 100,00</strong></p>
-        <form action="{% url 'adicionar_carrinho' 21 %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" class="btn-carrinho">Comprar</button>
-        </form>
-      </div>
-    </div>
   </section>
 
   <!-- Aba de serviços -->
@@ -394,7 +395,7 @@
               </button>
             </div>
             <div class="slide-image">
-              <img src="{% static 'img/promocoes/isolated-3230523_1280.jpg' %}" alt="Ofertas Especiais"/>
+              <img src="{% static 'img/promocoes/isolated-3230523_1280.jpg' %}" alt="Ofertas Especiais" />
             </div>
           </div>
 
@@ -411,7 +412,8 @@
               </button>
             </div>
             <div class="slide-image">
-              <img src="{% static 'img/promocoes/Marrom e Branco Moderno Coleção de Dia das Mães Instagram Post.png' %}" alt="Ofertas Especiais"/>
+              <img src="{% static 'img/promocoes/Marrom e Branco Moderno Coleção de Dia das Mães Instagram Post.png' %}"
+                alt="Ofertas Especiais" />
             </div>
           </div>
 
@@ -427,9 +429,9 @@
                 Aproveitar Agora
               </button>
             </div>
-            <div class="slide-image"> 
-              <img src="{% static 'img/promocoes/wedding-688924_1280.jpg' %}" alt="Ofertas Especiais"/>
-    
+            <div class="slide-image">
+              <img src="{% static 'img/promocoes/wedding-688924_1280.jpg' %}" alt="Ofertas Especiais" />
+
             </div>
           </div>
         </div>
@@ -544,40 +546,41 @@
     </footer>
   </section>
 
-  
-    <script src="{% static 'js/carrinho.js' %}"></script>
-    <script src="{% static 'js/carrocel.js' %}"></script>
-  
-    <script>
-      const searchInput = document.querySelector('.search-input');
-  const form = document.querySelector('.search-form');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Evita recarregar a página
 
-    const searchTerm = searchInput.value.toLowerCase();
-    const products = document.querySelectorAll('.card');
+  <script src="{% static 'js/carrocel.js' %}"></script>
+  <script src="{% static 'js/botao-btn.js' %}"></script>
 
-    let found = false;
+  <script>
+    const searchInput = document.querySelector('.search-input');
+    const form = document.querySelector('.search-form');
 
-    products.forEach(product => {
-      const name = product.querySelector('h3').innerText.toLowerCase();
-      const desc = product.querySelector('p').innerText.toLowerCase();
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Evita recarregar a página
 
-      if (name.includes(searchTerm) || desc.includes(searchTerm)) {
-        product.style.display = 'block';
-        found = true;
-      } else {
-        product.style.display = 'none';
+      const searchTerm = searchInput.value.toLowerCase();
+      const products = document.querySelectorAll('.card');
+
+      let found = false;
+
+      products.forEach(product => {
+        const name = product.querySelector('h3').innerText.toLowerCase();
+        const desc = product.querySelector('p').innerText.toLowerCase();
+
+        if (name.includes(searchTerm) || desc.includes(searchTerm)) {
+          product.style.display = 'block';
+          found = true;
+        } else {
+          product.style.display = 'none';
+        }
+      });
+
+      if (!found) {
+        alert('Nenhum produto encontrado!');
       }
     });
 
-    if (!found) {
-      alert('Nenhum produto encontrado!');
-    }
-  });
-
-    </script>
+  </script>
 </body>
 
 </html>
