@@ -45,20 +45,23 @@
   </section>
 
   <!-- Carrinho Lateral -->
-<div id="carrinho-lateral" class="carrinho cart">
-  <h3>🛒 Seu Carrinho</h3>
-  <ul id="produtos"></ul>
-  <p id="total-carrinho"><strong>Total:</strong> R$ 0,00</p>
-    <button class="button" onclik="aplicarDesconto"()>Aplicar Desconto de 5%</button>
-
-  <div id="formas-pagamento" class="formas-pagamento">
-    <h4>Formas de Pagamento</h4>
-    <button onclick="alert('Pagamento via Pix')">Pix</button>
-    <button onclick="alert('Pagamento via Cartão')">Cartão</button>
-    <button onclick="alert('Pagamento via Boleto')">Boleto</button>
+<div id="carrinho-modal" class="carrinho cart">
+  <div class="carrinho-modal">
+  <div class="carrinho-header">
+    <button class="btn-voltar">←</button>
+    <h2>Carrinho de Compras</h2>
+    <button class="btn-fechar">Fechar</button>
   </div>
 
-  <button onclick="fecharCarrinho()" ></button>
+  <div class="carrinho-footer">
+    <p class="total">Total:<strong></strong></p>
+    <button class="btn-finalizar">FINALIZAR COMPRA</button>
+    <button class="btn-continuar">CONTINUAR COMPRANDO</button>
+  </div>
+</div>
+</div>
+  
+  
 
 </div>
 
