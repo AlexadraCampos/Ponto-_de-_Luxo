@@ -6,20 +6,11 @@
   <title>Ponto de Luxo</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/carrinho.css' %}"/>
 
   <link rel="icon" type="image/x-icon" href="{% static 'img/PontoLuxo icon.jpg' %}" />
 </head>
-
-<!-- Carrinho lateral -->
-<div id="cartDrawer"
-  style="display:none; position:fixed; right:0; top:0; width:400px; height:100%; background:white; border-left:1px solid #ccc; padding:20px; box-shadow:-2px 0 5px rgba(0,0,0,0.3); overflow:auto; z-index: 1000;">
-  <button onclick="closeCart()">Fechar</button>
-  <h2>Sua Sacola</h2>
-  <div id="cartItems"></div>
-  <h3>Total: <span id="cartTotal">R$ 0,00</span></h3>
-  <button>Ir para a Sacola</button>
-</div>
 
 <body>
   <header>
@@ -41,7 +32,7 @@
         <input type="text" name="q" placeholder="Pesquisa em toda loja..." class="search-input" />
 
         <!-- Botão com lupa funcional -->
-        <button type="submit" class="search-button" aria-label="Pesquisar">
+        <button type="button" class="search-button" aria-label="Pesquisar">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
@@ -52,6 +43,24 @@
       </div>
     </form>
   </section>
+
+  <!-- Carrinho Lateral -->
+<div id="carrinho-lateral" class="carrinho cart">
+  <h3>🛒 Seu Carrinho</h3>
+  <ul id="produtos"></ul>
+  <p id="total-carrinho"><strong>Total:</strong> R$ 0,00</p>
+    <button class="button" onclik="aplicarDesconto"()>Aplicar Desconto de 5%</button>
+
+  <div id="formas-pagamento" class="formas-pagamento">
+    <h4>Formas de Pagamento</h4>
+    <button onclick="alert('Pagamento via Pix')">Pix</button>
+    <button onclick="alert('Pagamento via Cartão')">Cartão</button>
+    <button onclick="alert('Pagamento via Boleto')">Boleto</button>
+  </div>
+
+  <button onclick="fecharCarrinho()" ></button>
+
+</div>
 
   <!-- Produtos da loja  -->
   <section id="produtos" class="section">
@@ -64,7 +73,7 @@
           <p class="preco"><strong>R$ 1.500,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 1 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -75,7 +84,7 @@
           <p class="preco"><strong>R$ 2.800,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 2 %}" method="POST">
             {% csrf_token %}
-            <button onclick="openCart()" type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -87,7 +96,7 @@
           <p class="preco"><strong>R$ 950,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 3 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
       </div>
@@ -100,7 +109,7 @@
           <p class="preco"><strong>R$ 800,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 4 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -111,7 +120,7 @@
           <p class="preco"><strong>R$ 500,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 5 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -122,7 +131,7 @@
           <p class="preco"><strong>R$ 950,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 6 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
       </div>
@@ -136,7 +145,7 @@
           <p class="preco"><strong>R$ 890,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 7 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -147,7 +156,7 @@
           <p class="preco"><strong>R$ 2.000,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 8 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -160,7 +169,7 @@
           <p class="preco"><strong>R$ 139,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 9 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
       </div>
@@ -174,7 +183,7 @@
           <p class="preco"><strong>R$ 611,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 10 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -185,7 +194,7 @@
           <p class="preco"><strong>R$ 200,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 11 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -198,7 +207,7 @@
           <p class="preco"><strong>R$ 900,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 12 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
       </div>
@@ -211,7 +220,7 @@
           <p class="preco"><strong>R$ 3.500,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 13 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -222,7 +231,7 @@
           <p class="preco"><strong>R$ 1.800,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 14 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -233,7 +242,7 @@
           <p class="preco"><strong>R$ 950,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 15 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
       </div>
@@ -246,7 +255,7 @@
           <p class="preco"><strong>R$ 500,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 16 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -257,7 +266,7 @@
           <p class="preco"><strong>R$ 500,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 17 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -268,7 +277,7 @@
           <p class="preco"><strong>R$ 950,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 18 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
       </div>
@@ -280,7 +289,7 @@
           <p class="preco"><strong>R$ 1.500,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 19 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -291,7 +300,7 @@
           <p class="preco"><strong>R$ 200,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 20 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
 
@@ -302,7 +311,7 @@
           <p class="preco"><strong>R$ 100,00</strong></p>
           <form action="{% url 'adicionar_carrinho' 21 %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn-carrinho">Comprar</button>
+            <button type="button" class="btn-carrinho">Comprar</button>
           </form>
         </div>
       </div>
@@ -501,7 +510,7 @@
             <p>Cadastre seu e-mail para receber informações exclusivas</p>
             <form>
               <input type="email" placeholder="E-mail" required />
-              <button type="submit">Cadastrar</button>
+              <button type="button">Cadastrar</button>
             </form>
             <p class="politica">
               Ao se cadastrar, você concorda com nossa
@@ -547,40 +556,9 @@
   </section>
 
 
-
+  <script src="{% static 'js/adicionar_carrinho.js' %}"></script>
   <script src="{% static 'js/carrocel.js' %}"></script>
-  <script src="{% static 'js/botao-btn.js' %}"></script>
-
-  <script>
-    const searchInput = document.querySelector('.search-input');
-    const form = document.querySelector('.search-form');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault(); // Evita recarregar a página
-
-      const searchTerm = searchInput.value.toLowerCase();
-      const products = document.querySelectorAll('.card');
-
-      let found = false;
-
-      products.forEach(product => {
-        const name = product.querySelector('h3').innerText.toLowerCase();
-        const desc = product.querySelector('p').innerText.toLowerCase();
-
-        if (name.includes(searchTerm) || desc.includes(searchTerm)) {
-          product.style.display = 'block';
-          found = true;
-        } else {
-          product.style.display = 'none';
-        }
-      });
-
-      if (!found) {
-        alert('Nenhum produto encontrado!');
-      }
-    });
-
-  </script>
+  <script src="{% static 'js/busca.js' %}"></script>
 </body>
 
 </html>

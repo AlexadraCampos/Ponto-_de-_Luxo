@@ -9,6 +9,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['ponto-de-luxo.onrender.com', 'localhost', '127.0.0.1' ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://ponto-de-luxo.onrender.com",
+]
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
