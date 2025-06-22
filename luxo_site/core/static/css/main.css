@@ -353,6 +353,11 @@ footer {
     
   }
 
+  .container{
+    flex-direction: column;
+    align-items: center;
+    word-wrap: break-word;
+  }
 
 
 }
