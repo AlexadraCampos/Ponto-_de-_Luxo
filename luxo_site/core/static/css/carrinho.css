@@ -1,15 +1,15 @@
 .carrinho {
-
-  position: fixed;  
+  position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
-  max-width: 90vh;
-  background-color:#f3e9dc;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  width: 400px; 
+  background-color: #f3e9dc;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   padding: 20px;
   z-index: 999;
   display: none;
+  height: auto;
+  overflow-y: auto;
 }
 
 .carrinho.carrinho-aberto {
@@ -18,11 +18,10 @@
 
 .carrinho-modal {
   background: #fff;
-  max-width: 400px;
-  margin: 0 auto;
+  width: 100%; 
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   font-family: 'Arial', sans-serif;
 }
 
@@ -35,17 +34,21 @@
 }
 
 .carrinho-header h2 {
-  font-size: 18px;
-  margin: 0;
+  font-size: 16px;
+  margin: 22px;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-.btn-voltar,
+
 .btn-fechar {
   background: none;
   border: none;
-  font-size: 20px;
-  cursor: pointer;
+  font-size: 16px;
+  cursor: pointer;;
+  color: #000;
 }
+
 
 .carrinho-item {
   display: flex;
@@ -128,18 +131,86 @@
 }
 
 
-@media (max-width: 1200px) {
-    .produtos {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .carrinho-aberto .produtos {
-        grid-template-columns: repeat(1, 1fr);
-    }
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+
+  /* menu-mobile */
+  li {
+    list-style: none;
 }
 
-@media (max-width: 768px) {
-    .produtos {
-        grid-template-columns: repeat(1, 1fr);
-    }
+.menu {
+    display: inline-block;
+    position: relative;
 }
+
+.menu .btn {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu .btn .bar {
+    width: 30px;
+    height: 5px;
+    background: #000;
+    margin-bottom: 5px;
+}
+
+.menu .btn .bar:last-child {
+    margin-bottom: 0px;
+}
+
+.menu-desktop {
+    display: none; 
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: whitesmoke;
+    border: 3px solid #000;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.3s, transform 0.3s; 
+}
+
+.menu_show {
+    display: block; 
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu a {
+    font-family: 'Open Sans';
+    color: #222;
+    padding: 10px 20px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+.menu li:last-child a {
+    border-bottom: 0px;
+}
+
+.menu a:hover {
+    color: rgb(189, 58, 80);
+    background-color: #ffe4ec;
+
+}
+   
+  .menu_show {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    
+  }
+}
+

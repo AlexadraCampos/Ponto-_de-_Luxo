@@ -14,6 +14,7 @@ document.querySelectorAll(".btn-fechar").forEach((btn) => {
   });
 });
 
+
 let totalCarrinho = 0;
 
 function atualizarTotal(preco) {
