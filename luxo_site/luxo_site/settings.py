@@ -7,10 +7,10 @@ SECRET_KEY = 'DJANGO_SECRET_KEY', 'your-default'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['ponto-de-luxo.onrender.com', 'localhost', '127.0.0.1' ]
+ALLOWED_HOSTS = ['ponto-de-luxo-rss8.onrender.com', 'localhost', '127.0.0.1' ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://ponto-de-luxo.onrender.com",
+    "https://ponto-de-luxo-rss8.onrender.com/",
 ]
 
 
