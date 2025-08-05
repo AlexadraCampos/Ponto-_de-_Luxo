@@ -1,34 +1,48 @@
-✨ Ponto de Luxo | Onde Elegância Encontra Exclusividade
+# 🛍️ Ponto de Luxo
 
-## Sobre o Projeto
+Loja virtual de decoração e serviços, desenvolvida com Django no backend e JavaScript puro no frontend. O projeto inclui exibição dinâmica de produtos e serviços com funcionalidades básicas de e-commerce.
 
-Ponto de Luxo é um e-commerce de luxo, criado para proporcionar uma experiência de compra sofisticada, intuitiva e visualmente impactante. O frontend foi desenvolvido com foco em performance, responsividade e uma navegação fluida, entregando uma interface elegante e moderna que reflete exclusividade e bom gosto.
+---
 
-Cada detalhe do design foi pensado para oferecer uma experiência premium, seja no desktop ou no mobile, garantindo que o usuário se sinta imerso em um ambiente digital de alta qualidade.
+## 🔗 Repositórios
 
-## Funcionalidades Principais
+- [Frontend](https://github.com/AlexadraCampos/Ponto-_de-_Luxo): HTML, CSS, JavaScript puro.
+- Backend incluso na mesma estrutura, desenvolvido com Django.
 
-- Interface moderna, limpa e intuitiva  
-- Layout responsivo para dispositivos desktop e mobile  
-- Páginas dinâmicas com filtros inteligentes para produtos e serviços  
-- Visualização detalhada de cada produto com informações completas  
-- Carrinho de compras funcional e otimizado  
-- Área de contato integrada (WhatsApp, e-mail, redes sociais)  
-- Navegação suave entre páginas sem recarregamento  
-- Microinterações e animações sutis para melhorar a experiência do usuário
+---
 
-## Tecnologias Utilizadas
+## ⚙️ Tecnologias utilizadas
 
+![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=fff)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript)
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python)
+![Django](https://img.shields.io/badge/-Django-092E20?style=flat&logo=django)
 
-- **JavaScript (ES6+)** — lógica do frontend e interatividade  
-- **CSS3 e Styled Components** — estilização moderna, responsiva e alinhada à identidade visual do projeto  s  
-- **Axios** — comunicação com o backend via API REST   
-- **Git / GitHub** — controle de versão e colaboração no desenvolvimento  
-- **Figma / Adobe XD** — prototipagem e design de interfaces
-- **Django** — framework web robusto e seguro para desenvolvimento backend    
+---
 
-## Como Rodar o Projeto
+## 🚀 Funcionalidades
 
-1. Clone o repositório  
-   ```bash
-   git clone https://github.com/AlexadraCampos/Ponto-_de-_Luxo.
+- Exibição de produtos e serviços com layout diferenciado
+- Responsividade em dispositivos móveis
+- Organização de arquivos com Django e pastas estáticas
+- Separação entre frontend (JavaScript puro) e backend (Django)
+
+---
+
+## 📂 Estrutura de pastas
+
+Luxo_site/
+├── core/
+│ ├── static/
+│ │ ├── css/
+│ │ └── js/
+│ ├── templates/
+│ └── views.py
+├── db.sqlite3
+├── manage.py
+
+## 📸 Demonstração
+
+<img width="1080" height="1080" alt="luxo_site" src="https://github.com/user-attachments/assets/ced3904f-260e-4045-ac49-250c54682876" />
+
