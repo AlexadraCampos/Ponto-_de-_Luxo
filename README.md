@@ -21,10 +21,8 @@ Cada detalhe do design foi pensado para oferecer uma experiência premium, seja 
 
 
 - **JavaScript (ES6+)** — lógica do frontend e interatividade  
-- **CSS3 e Styled Components** — estilização moderna, responsiva e alinhada à identidade visual do projeto  
-- **React Router** — gerenciamento de rotas e navegação entre páginas  
-- **Axios** — comunicação com o backend via API REST  
-- **Webpack / Vite** — bundlers para otimização e performance do código  
+- **CSS3 e Styled Components** — estilização moderna, responsiva e alinhada à identidade visual do projeto  s  
+- **Axios** — comunicação com o backend via API REST   
 - **Git / GitHub** — controle de versão e colaboração no desenvolvimento  
 - **Figma / Adobe XD** — prototipagem e design de interfaces
 - **Django** — framework web robusto e seguro para desenvolvimento backend    
