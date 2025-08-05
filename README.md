@@ -19,7 +19,7 @@ Cada detalhe do design foi pensado para oferecer uma experiência premium, seja 
 
 ## Tecnologias Utilizadas
 
-- **React.js** — para construção da interface e componentes reutilizáveis  
+
 - **JavaScript (ES6+)** — lógica do frontend e interatividade  
 - **CSS3 e Styled Components** — estilização moderna, responsiva e alinhada à identidade visual do projeto  
 - **React Router** — gerenciamento de rotas e navegação entre páginas  
